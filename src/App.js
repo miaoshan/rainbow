@@ -39,7 +39,19 @@ class App extends Component {
     ).then(resp => resp.json());
   };
 
-
+  getSortedBooks = () => {
+    if (this.state.sortBy === "Alphabetically") {
+      return this.state.books.sort((a, b) =>
+        a.volumeInfo.title.localeCompare(b.volumeInfo.title)
+      );
+    } else if (this.state.sortBy === "Price") {
+      return this.state.books.sort(
+        (a, b) => a.saleInfo.retailPrice.amount - b.saleInfo.retailPrice.amount
+      );
+    } else if (this.state.sortBy === "All") {
+      return this.state.books;
+    }
+  };
   render() {
     return (
       <Router>
