@@ -29,5 +29,39 @@ class BookInfo extends Component {
                 }
             });
     }
+
+
+    render() {
+        return (
+          <div className="container">
+            <h1 className="bookTitle">{this.state.book.title}</h1>
+            <img
+              className="bookImage"
+              src={this.state.image}
+              alt={this.state.book.title}
+            />
+            <h2 className="bookAuthor">{this.state.book.authors}</h2>
+            <p className="bookPriceLink">£{this.state.price.amount}</p>
+            <h3 className="bookPublisher">
+              Publisher: {this.state.book.publisher}
+            </h3>
+            <h4 className="bookPublishedDate">
+              Published: {this.state.book.publishedDate}
+            </h4>
+            <h6 className="bookPageCount">
+              Page Count: {this.state.book.pageCount}
+            </h6>
+            <h6 className="bookGenre"> Genres: {this.state.genre}</h6>
+            <p
+              className="bookDescription"
+              dangerouslySetInnerHTML={{ __html: this.state.book.description }}
+            />
+            {/* <div>
+              {this.renderWishButton()}
+              {this.renderCartButton()}
+            </div> */}
+          </div>
+        );
+      }
 }
     export default BookInfo;
